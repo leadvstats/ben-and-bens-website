@@ -1,0 +1,198 @@
+---
+layout: base.njk
+permalink: /index.html
+title: "Ben & Ben's Property Services | Dryer Vent Cleaning, Mowing & Landscaping"
+description: "Ben & Ben's Property Services offers professional dryer vent cleaning, lawn mowing and landscaping, including garden design, sod installation, excavation and hardscaping. Reliable local property care. Call for a free quote."
+keywords: "dryer vent cleaning, lawn mowing, landscaping, garden design, sod installation, excavation, hardscaping, property services, yard maintenance"
+ogType: business.business
+ogTitle: "Ben & Ben's Property Services"
+ogDescription: "Professional dryer vent cleaning, mowing and landscaping."
+schemaType: localBusiness
+schemaDescription: "Professional dryer vent cleaning, lawn mowing and landscaping services, including garden design, sod installation, excavation and hardscaping."
+makesOffer:
+  - name: Dryer Vent Cleaning
+    href: /dryer-vent-cleaning.html
+  - name: Lawn Mowing
+    href: /lawn-mowing.html
+  - name: Landscaping
+    href: /landscaping.html
+
+heroHeading: "Reliable Property Care, Right Here in Halifax"
+heroText: "Dryer vents, lawns, gardens: the stuff you keep meaning to get to. We'll just take care of it for you."
+
+storyPhoto: images/benandben.jpg
+storyPhotoAlt: "Ben and Ben, founders of Ben & Ben's Property Services, standing together in front of a landscaped garden"
+storyEyebrow: "Our Story"
+storyHeading: "Meet The Bens"
+storyParagraph1: "We started working together as student labourers for the city in 2022, where we gained valuable experience in landscaping and property maintenance. In 2023, we decided to take what we'd learned and build something of our own, that's how Ben & Ben's Property Services began."
+storyParagraph2: "From day one, our goal has been simple: deliver reliable, high-quality service and treat every property like it's our own. Through hard work, teamwork, and a commitment to doing things the right way, we've grown steadily across HRM. We take pride in clear communication, consistent results, and building lasting relationships with our clients."
+storyParagraph3: "For us, it's more than just property care; it's about earning trust and creating outdoor spaces our clients are proud of."
+
+servicesHeading: "What We Do"
+servicesText: "Here's what we get called for most. Don't see your thing on the list? Ask anyway."
+services:
+  - icon: "&#127788;"
+    title: Dryer Vent Cleaning
+    text: "Nobody thinks about their dryer vent until it's a problem. We'll clean it out so it never gets there."
+    href: dryer-vent-cleaning.html
+  - icon: "&#127793;"
+    title: Lawn Mowing
+    text: "A lawn that actually looks mowed, every single time. Weekly, biweekly, or just the one cut before company shows up."
+    href: lawn-mowing.html
+  - icon: "&#127795;"
+    title: Landscaping
+    text: "Tired flower bed? Full yard overhaul? Garden design, sod, digging, stonework, we do it all ourselves."
+    href: landscaping.html
+
+workHeading: "Our Work"
+workText: "A few recent jobs around Halifax. This is what \"done right\" actually looks like."
+workPhotos:
+  - src: images/work-1.jpeg
+    alt: "Freshly mulched garden beds with evergreen shrubs around a Halifax home"
+  - src: images/work-2.jpeg
+    alt: "New landscape bed with black mulch and white stone accents at a new build"
+  - src: images/work-3.jpeg
+    alt: "Freshly striped, mowed lawn at a large Halifax property"
+  - src: images/work-4.jpeg
+    alt: "New sod and mulch beds installed in a front yard"
+
+featuresHeading: "Why Choose Ben & Ben's"
+features:
+  - icon: "&#9989;"
+    title: Locally Owned
+    text: "We're locally owned and operated. We live here, same as you."
+  - icon: "&#128176;"
+    title: Fair Pricing
+    text: "You'll know the price before we touch a thing. No \"surprise\" charges later."
+  - icon: "&#9200;"
+    title: On Time
+    text: "We say when we're coming, and we show up then."
+  - icon: "&#11088;"
+    title: Quality Work
+    text: "We treat every yard like the neighbors are going to notice, because they usually do."
+
+stats:
+  - number: "3+"
+    label: Years in Service
+  - number: "150+"
+    label: Customers
+  - number: "100%"
+    label: Satisfaction
+
+ctaHeading: "Ready to Get Started?"
+ctaText: "Call or message us today for a free, no-obligation quote."
+---
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container">
+      <h1>{{ heroHeading }}</h1>
+      <p>{{ heroText }}</p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn">Get a Free Quote</a>
+        <a href="tel:{{ site.phone1Link }}" class="btn btn-outline">Call {{ site.phone1 }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Our Story ===== -->
+  <section id="our-story">
+    <div class="container">
+      <div class="about-story">
+        <div class="about-story-photo">
+          <img src="{{ storyPhoto }}" alt="{{ storyPhotoAlt }}" />
+        </div>
+        <div class="about-story-text">
+          <p class="eyebrow">{{ storyEyebrow }}</p>
+          <h2>{{ storyHeading }}</h2>
+          <p>{{ storyParagraph1 }}</p>
+          <p>{{ storyParagraph2 }}</p>
+          <p>{{ storyParagraph3 }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services overview ===== -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>{{ servicesHeading }}</h2>
+        <p>{{ servicesText }}</p>
+      </div>
+      <div class="grid">
+        {% for service in services %}
+        <article class="card">
+          <span class="icon" aria-hidden="true">{{ service.icon | safe }}</span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.text }}</p>
+          <p><a href="{{ service.href }}">Learn More &rarr;</a></p>
+        </article>
+        {% endfor %}
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="services.html" class="btn">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Our Work ===== -->
+  <section class="alt-bg">
+    <div class="container">
+      <div class="section-head">
+        <h2>{{ workHeading }}</h2>
+        <p>{{ workText }}</p>
+      </div>
+      <div class="work-gallery">
+        {% for photo in workPhotos %}
+        <figure class="work-photo">
+          <img src="{{ photo.src }}" alt="{{ photo.alt }}" loading="lazy" />
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Why choose us ===== -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>{{ featuresHeading }}</h2>
+      </div>
+      <div class="features">
+        {% for feature in features %}
+        <div class="feature">
+          <div class="icon" aria-hidden="true">{{ feature.icon | safe }}</div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.text }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats band ===== -->
+  <section class="stats-band">
+    <div class="stats-numbers">
+      {% for stat in stats %}
+      <div class="stat">
+        <div class="stat-number">{{ stat.number }}</div>
+        <div class="stat-label">{{ stat.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ===== CTA band ===== -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>{{ ctaHeading }}</h2>
+      <p>{{ ctaText }}</p>
+      <div class="phone-row">
+        <a href="tel:{{ site.phone1Link }}">&#128222; {{ site.phone1 }}</a>
+        <a href="tel:{{ site.phone2Link }}">&#128222; {{ site.phone2 }}</a>
+      </div>
+      <div style="margin-top:24px;">
+        <a href="contact.html" class="btn">Request a Quote</a>
+      </div>
+    </div>
+  </section>

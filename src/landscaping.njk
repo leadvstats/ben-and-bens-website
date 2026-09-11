@@ -1,0 +1,86 @@
+---
+layout: base.njk
+permalink: /landscaping.html
+title: "Landscaping | Ben & Ben's Property Services"
+description: "Landscaping services including garden design, sod installation, excavation and hardscaping. Serving Halifax. Call for a free quote."
+ogTitle: "Landscaping | Ben & Ben's Property Services"
+ogDescription: "Garden design, sod installation, excavation and hardscaping."
+schemaType: serviceCatalog
+serviceType: Landscaping
+schemaDescription: "Landscaping services including garden design, sod installation, excavation and hardscaping."
+offerCatalog:
+  - name: Garden Design
+    href: /garden-design.html
+  - name: Sod Installation
+    href: /sod-installation.html
+  - name: Excavation
+    href: /excavation.html
+  - name: Hardscaping
+    href: /hardscaping.html
+
+heroHeading: Landscaping
+heroText: "Yards don't fix themselves. Whether you're starting from bare dirt or dealing with one overgrown corner, here's how we can help."
+
+sectionHeading: "Landscaping Services"
+sectionText: "Pick the piece you need, or let us handle the whole project start to finish."
+services:
+  - icon: "&#127794;"
+    title: Garden Design
+    text: "Not sure what to plant or where? We'll design a layout that actually works with your yard's sun and soil, not just what looked good on Pinterest."
+    href: garden-design.html
+  - icon: "&#127807;"
+    title: Sod Installation
+    text: "Skip the months of waiting on seed to fill in. Sod gives you a full lawn in a weekend."
+    href: sod-installation.html
+  - icon: "&#128679;"
+    title: Excavation
+    text: "Digging, grading, drainage fixes. Unglamorous work, but it's the reason everything built on top of it actually lasts."
+    href: excavation.html
+  - icon: "&#129535;"
+    title: Hardscaping
+    text: "Patios, walkways, retaining walls, built solid enough that you're not redoing it in five years."
+    href: hardscaping.html
+
+ctaHeading: "Not Sure What Your Yard Needs?"
+ctaText: "Send us a couple of photos and a quick description, and we'll tell you honestly what it needs."
+---
+  <section class="hero">
+    <div class="container">
+      <h1>{{ heroHeading }}</h1>
+      <p>{{ heroText }}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p><a href="services.html">&larr; Back to All Services</a></p>
+      <div class="section-head">
+        <h2>{{ sectionHeading }}</h2>
+        <p>{{ sectionText }}</p>
+      </div>
+      <div class="grid">
+        {% for service in services %}
+        <article class="card">
+          <span class="icon" aria-hidden="true">{{ service.icon | safe }}</span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.text }}</p>
+          <p><a href="{{ service.href }}">Learn More &rarr;</a></p>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>{{ ctaHeading }}</h2>
+      <p>{{ ctaText }}</p>
+      <div class="phone-row">
+        <a href="tel:{{ site.phone1Link }}">&#128222; {{ site.phone1 }}</a>
+        <a href="tel:{{ site.phone2Link }}">&#128222; {{ site.phone2 }}</a>
+      </div>
+      <div style="margin-top:24px;">
+        <a href="contact.html" class="btn">Request a Quote</a>
+      </div>
+    </div>
+  </section>

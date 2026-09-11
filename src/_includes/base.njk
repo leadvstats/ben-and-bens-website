@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}" />
+  {% if keywords %}<meta name="keywords" content="{{ keywords }}" />{% endif %}
+  <meta name="author" content="{{ site.businessName }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  <meta property="og:type" content="{{ ogType | default('website') }}" />
+  <meta property="og:title" content="{{ ogTitle | default(title) }}" />
+  <meta property="og:description" content="{{ ogDescription | default(description) }}" />
+  <meta property="og:image" content="{{ site.url }}/images/logo.jpg" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  {% if ogType == "business.business" %}<meta name="twitter:card" content="summary" />{% endif %}
+
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  {% if schemaType == "localBusiness" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "{{ site.businessName | safe }}",
+    "image": "{{ site.url }}/images/logo.jpg",
+    "description": "{{ schemaDescription | safe }}",
+    "email": "{{ site.email }}",
+    "telephone": "{{ site.phone1Link }}",
+    "url": "{{ site.url }}/",
+    "areaServed": "{{ site.areaServed }}",
+    "priceRange": "$$",
+    "contactPoint": [
+      { "@type": "ContactPoint", "telephone": "{{ site.phone1Link }}", "contactType": "customer service" },
+      { "@type": "ContactPoint", "telephone": "{{ site.phone2Link }}", "contactType": "customer service" }
+    ],
+    "makesOffer": [
+      {% for offer in makesOffer %}{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "{{ offer.name | safe }}", "url": "{{ site.url }}{{ offer.href }}" } }{% if not loop.last %},{% endif %}
+      {% endfor %}]
+  }
+  </script>
+  {% elif schemaType == "service" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "{{ serviceType | safe }}",
+    "name": "{{ serviceType | safe }}",
+    "description": "{{ schemaDescription | safe }}",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "{{ site.businessName | safe }}",
+      "telephone": "{{ site.phone1Link }}",
+      "url": "{{ site.url }}/"
+    },
+    "areaServed": "{{ site.areaServed }}",
+    "url": "{{ site.url }}{{ page.url }}"
+  }
+  </script>
+  {% elif schemaType == "serviceCatalog" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "{{ serviceType | safe }}",
+    "name": "{{ serviceType | safe }}",
+    "description": "{{ schemaDescription | safe }}",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "{{ site.businessName | safe }}",
+      "telephone": "{{ site.phone1Link }}",
+      "url": "{{ site.url }}/"
+    },
+    "areaServed": "{{ site.areaServed }}",
+    "url": "{{ site.url }}{{ page.url }}",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "{{ serviceType | safe }} Services",
+      "itemListElement": [
+        {% for offer in offerCatalog %}{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "{{ offer.name | safe }}", "url": "{{ site.url }}{{ offer.href }}" } }{% if not loop.last %},{% endif %}
+        {% endfor %}]
+    }
+  }
+  </script>
+  {% endif %}
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <img src="images/logo.jpg" alt="{{ site.businessName }} logo" />
+        <span>{{ site.businessName }}</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Get a Free Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  {{ content | safe }}
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>{{ site.businessName }}</h4>
+          <p>{{ site.footerTagline }}</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:{{ site.phone1Link }}">{{ site.phone1 }}</a></li>
+            <li><a href="tel:{{ site.phone2Link }}">{{ site.phone2 }}</a></li>
+            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year">2026</span> {{ site.businessName }}. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

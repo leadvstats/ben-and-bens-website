@@ -1,0 +1,221 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: src/images
+public_folder: images
+
+site_url: https://www.benandbenspropertyservices.com
+display_url: https://www.benandbenspropertyservices.com
+
+collections:
+  # ---------------------------------------------------------------
+  # Business info used everywhere on the site (phone, email, etc.)
+  # ---------------------------------------------------------------
+  - name: settings
+    label: Business Info
+    files:
+      - name: site
+        label: Business Info
+        file: src/_data/site.json
+        fields:
+          - { label: Business Name, name: businessName, widget: string }
+          - { label: Website Address, name: url, widget: string }
+          - { label: Phone Number 1, name: phone1, widget: string, hint: "e.g. 902-233-7677" }
+          - { label: "Phone Number 1 (dial link)", name: phone1Link, widget: string, hint: "e.g. +19022337677, no spaces or dashes" }
+          - { label: Phone Number 2, name: phone2, widget: string }
+          - { label: "Phone Number 2 (dial link)", name: phone2Link, widget: string }
+          - { label: Email Address, name: email, widget: string }
+          - { label: Area Served, name: areaServed, widget: string }
+          - { label: Business Hours, name: hours, widget: string }
+          - { label: Service Area Sentence, name: serviceAreaText, widget: string }
+          - { label: Footer Tagline, name: footerTagline, widget: string }
+
+  # ---------------------------------------------------------------
+  # The four unique pages: Home, Services hub, Landscaping hub, Contact
+  # ---------------------------------------------------------------
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home Page
+        file: src/index.njk
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: base.njk }
+          - { label: Permalink, name: permalink, widget: hidden, default: /index.html }
+          - { label: "Page Title (browser tab / SEO)", name: title, widget: string }
+          - { label: "Meta Description (SEO)", name: description, widget: text }
+          - { label: "SEO Keywords", name: keywords, widget: string, required: false }
+          - { label: "Social Share Type", name: ogType, widget: hidden, default: business.business }
+          - { label: "Social Share Title", name: ogTitle, widget: string }
+          - { label: "Social Share Description", name: ogDescription, widget: text }
+          - { label: "Structured Data Type", name: schemaType, widget: hidden, default: localBusiness }
+          - { label: "Structured Data Description", name: schemaDescription, widget: hidden }
+          - name: makesOffer
+            label: "Services List (SEO data)"
+            widget: hidden
+            default:
+              - { name: "Dryer Vent Cleaning", href: /dryer-vent-cleaning.html }
+              - { name: "Lawn Mowing", href: /lawn-mowing.html }
+              - { name: "Landscaping", href: /landscaping.html }
+
+          - { label: "Hero Heading", name: heroHeading, widget: string }
+          - { label: "Hero Text", name: heroText, widget: text }
+
+          - { label: "Story Photo", name: storyPhoto, widget: image }
+          - { label: "Story Photo Description (for accessibility)", name: storyPhotoAlt, widget: string }
+          - { label: "Story Eyebrow Label", name: storyEyebrow, widget: string }
+          - { label: "Story Heading", name: storyHeading, widget: string }
+          - { label: "Story Paragraph 1", name: storyParagraph1, widget: text }
+          - { label: "Story Paragraph 2", name: storyParagraph2, widget: text }
+          - { label: "Story Paragraph 3", name: storyParagraph3, widget: text }
+
+          - { label: "Services Section Heading", name: servicesHeading, widget: string }
+          - { label: "Services Section Text", name: servicesText, widget: text }
+          - name: services
+            label: "Service Cards"
+            widget: list
+            fields:
+              - { label: Icon, name: icon, widget: hidden }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+              - { label: "Link (do not change)", name: href, widget: hidden }
+
+          - { label: "Our Work Section Heading", name: workHeading, widget: string }
+          - { label: "Our Work Section Text", name: workText, widget: text }
+          - name: workPhotos
+            label: "Work Photos"
+            widget: list
+            fields:
+              - { label: Photo, name: src, widget: image }
+              - { label: "Description (for accessibility)", name: alt, widget: string }
+
+          - { label: "Why Choose Us Heading", name: featuresHeading, widget: string }
+          - name: features
+            label: "Why Choose Us Points"
+            widget: list
+            fields:
+              - { label: Icon, name: icon, widget: hidden }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+
+          - name: stats
+            label: "Stats Band Numbers"
+            widget: list
+            fields:
+              - { label: Number, name: number, widget: string, hint: "e.g. 3+, 150+, 100%" }
+              - { label: Label, name: label, widget: string, hint: "e.g. Years in Service" }
+
+          - { label: "Bottom Call-To-Action Heading", name: ctaHeading, widget: string }
+          - { label: "Bottom Call-To-Action Text", name: ctaText, widget: text }
+
+      - name: services_hub
+        label: Services Page
+        file: src/services.njk
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: base.njk }
+          - { label: Permalink, name: permalink, widget: hidden, default: /services.html }
+          - { label: "Page Title (browser tab / SEO)", name: title, widget: string }
+          - { label: "Meta Description (SEO)", name: description, widget: text }
+          - { label: "Social Share Title", name: ogTitle, widget: string }
+          - { label: "Social Share Description", name: ogDescription, widget: text }
+
+          - { label: "Hero Heading", name: heroHeading, widget: string }
+          - { label: "Hero Text", name: heroText, widget: text }
+
+          - name: services
+            label: "Service Cards"
+            widget: list
+            fields:
+              - { label: Icon, name: icon, widget: hidden }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+              - { label: "Link (do not change)", name: href, widget: hidden }
+
+          - { label: "Call-To-Action Heading", name: ctaHeading, widget: string }
+          - { label: "Call-To-Action Text", name: ctaText, widget: text }
+
+      - name: landscaping_hub
+        label: Landscaping Page
+        file: src/landscaping.njk
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: base.njk }
+          - { label: Permalink, name: permalink, widget: hidden, default: /landscaping.html }
+          - { label: "Page Title (browser tab / SEO)", name: title, widget: string }
+          - { label: "Meta Description (SEO)", name: description, widget: text }
+          - { label: "Social Share Title", name: ogTitle, widget: string }
+          - { label: "Social Share Description", name: ogDescription, widget: text }
+          - { label: "Structured Data Type", name: schemaType, widget: hidden, default: serviceCatalog }
+          - { label: "Structured Data Service Name", name: serviceType, widget: hidden, default: Landscaping }
+          - { label: "Structured Data Description", name: schemaDescription, widget: hidden }
+          - name: offerCatalog
+            label: "Sub-Services List (SEO data)"
+            widget: hidden
+            default:
+              - { name: "Garden Design", href: /garden-design.html }
+              - { name: "Sod Installation", href: /sod-installation.html }
+              - { name: "Excavation", href: /excavation.html }
+              - { name: "Hardscaping", href: /hardscaping.html }
+
+          - { label: "Hero Heading", name: heroHeading, widget: string }
+          - { label: "Hero Text", name: heroText, widget: text }
+          - { label: "Section Heading", name: sectionHeading, widget: string }
+          - { label: "Section Text", name: sectionText, widget: text }
+
+          - name: services
+            label: "Service Cards"
+            widget: list
+            fields:
+              - { label: Icon, name: icon, widget: hidden }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+              - { label: "Link (do not change)", name: href, widget: hidden }
+
+          - { label: "Call-To-Action Heading", name: ctaHeading, widget: string }
+          - { label: "Call-To-Action Text", name: ctaText, widget: text }
+
+      - name: contact
+        label: Contact Page
+        file: src/contact.njk
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: base.njk }
+          - { label: Permalink, name: permalink, widget: hidden, default: /contact.html }
+          - { label: "Page Title (browser tab / SEO)", name: title, widget: string }
+          - { label: "Meta Description (SEO)", name: description, widget: text }
+          - { label: "Social Share Title", name: ogTitle, widget: string }
+          - { label: "Social Share Description", name: ogDescription, widget: text }
+
+          - { label: "Hero Heading", name: heroHeading, widget: string }
+          - { label: "Hero Text", name: heroText, widget: text }
+
+  # ---------------------------------------------------------------
+  # The six individual service pages (same layout, same fields)
+  # ---------------------------------------------------------------
+  - name: services
+    label: "Individual Service Pages"
+    folder: src/services
+    extension: njk
+    format: frontmatter
+    create: false
+    delete: false
+    identifier_field: heroHeading
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: service-layout.njk }
+      - { label: Permalink, name: permalink, widget: hidden }
+      - { label: "Page Title (browser tab / SEO)", name: title, widget: string }
+      - { label: "Meta Description (SEO)", name: description, widget: text }
+      - { label: "Social Share Title", name: ogTitle, widget: string }
+      - { label: "Social Share Description", name: ogDescription, widget: text }
+      - { label: "Structured Data Service Name", name: serviceType, widget: hidden }
+      - { label: "Structured Data Description", name: schemaDescription, widget: hidden }
+
+      - { label: "Page Heading", name: heroHeading, widget: string }
+      - { label: "Page Subheading", name: heroText, widget: text }
+      - { label: "Back Link Text", name: backLabel, widget: hidden }
+      - { label: "Back Link URL", name: backHref, widget: hidden }
+      - { label: "Main Description", name: intro, widget: text }
+      - name: includedItems
+        label: "What's Included (list)"
+        widget: list
+      - { label: "Call-To-Action Heading", name: ctaHeading, widget: string }
+      - { label: "Call-To-Action Text", name: ctaText, widget: text }

@@ -1,0 +1,39 @@
+---
+layout: base.njk
+schemaType: service
+---
+  <section class="hero">
+    <div class="container">
+      <h1>{{ heroHeading }}</h1>
+      <p>{{ heroText }}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container service-content" style="max-width: 760px;">
+      <p><a href="{{ backHref }}">&larr; {{ backLabel }}</a></p>
+
+      <p>{{ intro }}</p>
+
+      <h2>What's Included</h2>
+      <ul>
+        {% for item in includedItems %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>{{ ctaHeading }}</h2>
+      <p>{{ ctaText }}</p>
+      <div class="phone-row">
+        <a href="tel:{{ site.phone1Link }}">&#128222; {{ site.phone1 }}</a>
+        <a href="tel:{{ site.phone2Link }}">&#128222; {{ site.phone2 }}</a>
+      </div>
+      <div style="margin-top:24px;">
+        <a href="contact.html" class="btn">Request a Quote</a>
+      </div>
+    </div>
+  </section>
