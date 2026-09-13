@@ -5,8 +5,8 @@ backend:
 media_folder: src/images
 public_folder: images
 
-site_url: https://www.benandbenspropertyservices.com
-display_url: https://www.benandbenspropertyservices.com
+site_url: https://benandbenspropertyservices.netlify.app
+display_url: https://benandbenspropertyservices.netlify.app
 
 collections:
   # ---------------------------------------------------------------

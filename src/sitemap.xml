@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.benandbenspropertyservices.com/</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/services.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/services.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/dryer-vent-cleaning.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/dryer-vent-cleaning.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/lawn-mowing.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/lawn-mowing.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/landscaping.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/landscaping.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/garden-design.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/garden-design.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/sod-installation.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/sod-installation.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/excavation.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/excavation.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/hardscaping.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/hardscaping.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.benandbenspropertyservices.com/contact.html</loc>
+    <loc>https://benandbenspropertyservices.netlify.app/contact.html</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
