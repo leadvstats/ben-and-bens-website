@@ -36,6 +36,7 @@ collections:
   # ---------------------------------------------------------------
   - name: pages
     label: Pages
+    format: frontmatter
     files:
       - name: home
         label: Home Page
