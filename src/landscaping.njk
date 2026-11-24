@@ -22,6 +22,7 @@ offerCatalog:
     href: /excavation.html
   - name: Hardscaping
     href: /hardscaping.html
+heroImage: images/work-1.jpeg
 heroHeading: Professional Landscaping & Outdoor Services
 heroText: From new garden installations to complete outdoor transformations, we
   provide professional landscaping solutions designed to improve the look,
@@ -29,25 +30,25 @@ heroText: From new garden installations to complete outdoor transformations, we
 sectionHeading: Our Landscaping Services
 sectionText: Explore our range of landscaping services, from garden design and
   sod installation to hardscaping and excavation. We have the solutions to bring
-  your outdoor projects to life
+  your outdoor projects to life.
 services:
-  - icon: "&#127794;"
+  - icon: flower
     title: Garden Design & Installation
     text: Create an outdoor space that complements your property with custom garden
       beds, plantings, mulch, decorative stone, and landscape improvements.
     href: garden-design.html
-  - icon: "&#127807;"
+  - icon: layers
     title: Sod Installation
     text: Get a fresh start with professional sod installation. We handle everything
       from ground preparation and grading to supplying and installing your new
       lawn.
     href: sod-installation.html
-  - icon: "&#128679;"
+  - icon: shovel
     title: Excavation
     text: Prepare your property for its next project with reliable excavation,
       grading, leveling, and site preparation services.
     href: excavation.html
-  - icon: "&#129535;"
+  - icon: bricks
     title: Hardscaping
     text: Add structure and functionality to your outdoor space with professionally
       installed patios, interlock walkways, retaining walls, and other hardscape
@@ -58,12 +59,7 @@ ctaText: Whether you're planning a new landscape or upgrading your existing
   property, Ben & Ben’s is ready to help. Get in touch today for a free quote on
   your project.
 ---
-  <section class="hero">
-    <div class="container">
-      <h1>{{ heroHeading }}</h1>
-      <p>{{ heroText }}</p>
-    </div>
-  </section>
+  {% include "hero.njk" %}
 
   <section>
     <div class="container">
@@ -74,27 +70,10 @@ ctaText: Whether you're planning a new landscape or upgrading your existing
       </div>
       <div class="grid">
         {% for service in services %}
-        <article class="card">
-          <span class="icon" aria-hidden="true">{{ service.icon | safe }}</span>
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.text }}</p>
-          <p><a href="{{ service.href }}">Learn More &rarr;</a></p>
-        </article>
+        {% include "service-card.njk" %}
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <section class="cta-band">
-    <div class="container">
-      <h2>{{ ctaHeading }}</h2>
-      <p>{{ ctaText }}</p>
-      <div class="phone-row">
-        <a href="tel:{{ site.phone1Link }}">&#128222; {{ site.phone1 }}</a>
-        <a href="tel:{{ site.phone2Link }}">&#128222; {{ site.phone2 }}</a>
-      </div>
-      <div style="margin-top:24px;">
-        <a href="contact.html" class="btn">Request a Quote</a>
-      </div>
-    </div>
-  </section>
+  {% include "cta-band.njk" %}

@@ -56,12 +56,27 @@ collections:
             label: "Services List (SEO data)"
             widget: hidden
             default:
+              - { name: "Landscaping & Hardscaping", href: /landscaping.html }
+              - { name: "Lawn & Property Maintenance", href: /lawn-mowing.html }
               - { name: "Dryer Vent Cleaning", href: /dryer-vent-cleaning.html }
-              - { name: "Lawn Mowing", href: /lawn-mowing.html }
-              - { name: "Landscaping", href: /landscaping.html }
+              - { name: "Real Estate Sign Services", href: /real-estate-signs.html }
 
+          - &heroImage
+            label: "Top Banner Background Photo"
+            name: heroImage
+            widget: image
+            required: false
+            hint: "Wide (landscape) photos at least 1600px across work best. The photo is darkened so the heading stays readable."
+          - { label: "Top Banner Small Text (above heading)", name: heroEyebrow, widget: string, required: false }
           - { label: "Hero Heading", name: heroHeading, widget: string }
-          - { label: "Hero Text", name: heroText, widget: text }
+          - { label: "Hero Text", name: heroText, widget: text, hint: "Leave a blank line between sentences to start a new paragraph." }
+
+          - name: stats
+            label: "Counter Boxes (overlap the bottom of the top banner)"
+            widget: list
+            fields:
+              - { label: Number, name: number, widget: string, hint: "Counts up from 0 when the page loads, e.g. 3+, 200+, 100%" }
+              - { label: Label, name: label, widget: string, hint: "e.g. Years in Service" }
 
           - { label: "Story Photo", name: storyPhoto, widget: image }
           - { label: "Story Photo Description (for accessibility)", name: storyPhotoAlt, widget: string }
@@ -73,14 +88,51 @@ collections:
 
           - { label: "Services Section Heading", name: servicesHeading, widget: string }
           - { label: "Services Section Text", name: servicesText, widget: text }
-          - name: services
+          - &serviceCards
+            name: services
             label: "Service Cards"
             widget: list
             fields:
-              - { label: Icon, name: icon, widget: hidden }
+              - &iconField
+                label: Icon
+                name: icon
+                widget: select
+                default: leaf
+                options:
+                  - { label: "Sprout (landscaping)", value: sprout }
+                  - { label: "Leaf", value: leaf }
+                  - { label: "Grass (lawn care)", value: grass }
+                  - { label: "Tree", value: tree }
+                  - { label: "Flower (gardens)", value: flower }
+                  - { label: "Layers (sod)", value: layers }
+                  - { label: "Shovel (excavation)", value: shovel }
+                  - { label: "Bricks (hardscaping)", value: bricks }
+                  - { label: "Air flow (dryer vents)", value: wind }
+                  - { label: "Sign post (real estate)", value: sign }
+                  - { label: "House", value: home }
+                  - { label: "Calendar check (reliability)", value: calendar }
+                  - { label: "Magnifying glass (detail)", value: search }
+                  - { label: "Shield check (guarantee)", value: shield }
+                  - { label: "Star", value: star }
+                  - { label: "Clock", value: clock }
               - { label: Title, name: title, widget: string }
               - { label: Description, name: text, widget: text }
-              - { label: "Link (do not change)", name: href, widget: hidden }
+              - label: "Learn More link goes to"
+                name: href
+                widget: select
+                required: false
+                hint: "Leave empty to hide the Learn More link."
+                options:
+                  - { label: "Landscaping page", value: landscaping.html }
+                  - { label: "Lawn & Property Maintenance page", value: lawn-mowing.html }
+                  - { label: "Dryer Vent Cleaning page", value: dryer-vent-cleaning.html }
+                  - { label: "Real Estate Sign Services page", value: real-estate-signs.html }
+                  - { label: "Garden Design page", value: garden-design.html }
+                  - { label: "Sod Installation page", value: sod-installation.html }
+                  - { label: "Excavation page", value: excavation.html }
+                  - { label: "Hardscaping page", value: hardscaping.html }
+                  - { label: "All Services page", value: services.html }
+                  - { label: "Contact page", value: contact.html }
 
           - { label: "Our Work Section Heading", name: workHeading, widget: string }
           - { label: "Our Work Section Text", name: workText, widget: text }
@@ -96,16 +148,9 @@ collections:
             label: "Why Choose Us Points"
             widget: list
             fields:
-              - { label: Icon, name: icon, widget: hidden }
+              - *iconField
               - { label: Title, name: title, widget: string }
               - { label: Description, name: text, widget: text }
-
-          - name: stats
-            label: "Stats Band Numbers"
-            widget: list
-            fields:
-              - { label: Number, name: number, widget: string, hint: "e.g. 3+, 150+, 100%" }
-              - { label: Label, name: label, widget: string, hint: "e.g. Years in Service" }
 
           - { label: "Bottom Call-To-Action Heading", name: ctaHeading, widget: string }
           - { label: "Bottom Call-To-Action Text", name: ctaText, widget: text }
@@ -121,17 +166,11 @@ collections:
           - { label: "Social Share Title", name: ogTitle, widget: string }
           - { label: "Social Share Description", name: ogDescription, widget: text }
 
+          - *heroImage
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
 
-          - name: services
-            label: "Service Cards"
-            widget: list
-            fields:
-              - { label: Icon, name: icon, widget: hidden }
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: text, widget: text }
-              - { label: "Link (do not change)", name: href, widget: hidden }
+          - *serviceCards
 
           - { label: "Call-To-Action Heading", name: ctaHeading, widget: string }
           - { label: "Call-To-Action Text", name: ctaText, widget: text }
@@ -158,19 +197,13 @@ collections:
               - { name: "Excavation", href: /excavation.html }
               - { name: "Hardscaping", href: /hardscaping.html }
 
+          - *heroImage
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
           - { label: "Section Heading", name: sectionHeading, widget: string }
           - { label: "Section Text", name: sectionText, widget: text }
 
-          - name: services
-            label: "Service Cards"
-            widget: list
-            fields:
-              - { label: Icon, name: icon, widget: hidden }
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: text, widget: text }
-              - { label: "Link (do not change)", name: href, widget: hidden }
+          - *serviceCards
 
           - { label: "Call-To-Action Heading", name: ctaHeading, widget: string }
           - { label: "Call-To-Action Text", name: ctaText, widget: text }
@@ -186,11 +219,12 @@ collections:
           - { label: "Social Share Title", name: ogTitle, widget: string }
           - { label: "Social Share Description", name: ogDescription, widget: text }
 
+          - *heroImage
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
 
   # ---------------------------------------------------------------
-  # The six individual service pages (same layout, same fields)
+  # The individual service pages (same layout, same fields)
   # ---------------------------------------------------------------
   - name: services
     label: "Individual Service Pages"
@@ -210,13 +244,18 @@ collections:
       - { label: "Structured Data Service Name", name: serviceType, widget: hidden }
       - { label: "Structured Data Description", name: schemaDescription, widget: hidden }
 
+      - *heroImage
       - { label: "Page Heading", name: heroHeading, widget: string }
       - { label: "Page Subheading", name: heroText, widget: text }
       - { label: "Back Link Text", name: backLabel, widget: hidden }
       - { label: "Back Link URL", name: backHref, widget: hidden }
       - { label: "Main Description", name: intro, widget: text }
+      - { label: "List Heading", name: includedHeading, widget: string, default: "Our Process" }
       - name: includedItems
-        label: "What's Included (list)"
+        label: "List Items"
+        label_singular: "Item"
         widget: list
+        hint: "One item per row. Use the Add button for each new line."
+        field: { label: Item, name: item, widget: string }
       - { label: "Call-To-Action Heading", name: ctaHeading, widget: string }
       - { label: "Call-To-Action Text", name: ctaText, widget: text }

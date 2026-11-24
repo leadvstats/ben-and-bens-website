@@ -1,0 +1,22 @@
+{#- Shared page banner. Pages may `set heroVariant = "home"` and
+    `set heroButtons = true` before including this. -#}
+<section class="hero{% if heroImage %} hero--photo{% endif %}{% if heroVariant %} hero--{{ heroVariant }}{% endif %}">
+  {% if heroImage %}
+  <div class="hero-bg" aria-hidden="true">
+    <img src="{{ heroImage }}" alt="" fetchpriority="high" />
+  </div>
+  {% endif %}
+  <div class="container hero-inner">
+    {% if heroEyebrow %}<p class="hero-eyebrow">{{ heroEyebrow }}</p>{% endif %}
+    <h1>{{ heroHeading }}</h1>
+    {% for para in heroText | paragraphs %}
+    <p>{{ para }}</p>
+    {% endfor %}
+    {% if heroButtons %}
+    <div class="hero-actions">
+      <a href="contact.html" class="btn">Get a Free Quote</a>
+      <a href="tel:{{ site.phone1Link }}" class="btn btn-outline">{% icon "phone" %} Call {{ site.phone1 }}</a>
+    </div>
+    {% endif %}
+  </div>
+</section>

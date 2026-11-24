@@ -1,0 +1,7 @@
+{#- Expects `service` from the surrounding for-loop. -#}
+<article class="card">
+  <span class="icon">{% icon service.icon %}</span>
+  <h3>{{ service.title }}</h3>
+  <p>{{ service.text }}</p>
+  {% if service.href %}<p class="card-link"><a href="{{ service.href }}">Learn More &rarr;</a></p>{% endif %}
+</article>
