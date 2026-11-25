@@ -278,12 +278,12 @@ collections:
       - { label: "Back Link Text", name: backLabel, widget: hidden }
       - { label: "Back Link URL", name: backHref, widget: hidden }
       - { label: "Main Description", name: intro, widget: text }
-      - { label: "List Heading", name: includedHeading, widget: string, default: "What's Included" }
+      - { label: "List Heading", name: includedHeading, widget: string, default: "Our Services" }
       - name: includedItems
         label: "List Items"
         label_singular: "Item"
         widget: list
-        hint: "One item per row. Use the Add button for each new line."
+        hint: "One item per row. Use the Add button for each new line. Each word is capitalized automatically on the site."
         field: { label: Item, name: item, widget: string }
       - { label: "Call-To-Action Heading", name: ctaHeading, widget: string }
       - { label: "Call-To-Action Text", name: ctaText, widget: text }

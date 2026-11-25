@@ -23,6 +23,17 @@ module.exports = function (eleventyConfig) {
       .filter(Boolean)
   );
 
+  // "Ground leveling and grading" -> "Ground Leveling and Grading".
+  // Only ever raises first letters, so "HRM" and typed capitals are kept.
+  const SMALL_WORDS = new Set(["a", "an", "and", "as", "at", "but", "by", "for", "from", "in", "nor", "of", "on", "or", "per", "the", "to", "via", "with"]);
+  eleventyConfig.addFilter("headline", (text) =>
+    String(text || "").replace(/[A-Za-z][\w']*/g, (word, offset) =>
+      offset > 0 && SMALL_WORDS.has(word.toLowerCase())
+        ? word
+        : word.charAt(0).toUpperCase() + word.slice(1)
+    )
+  );
+
   return {
     dir: {
       input: "src",
