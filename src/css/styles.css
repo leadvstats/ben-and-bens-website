@@ -259,6 +259,49 @@ section { padding: 64px 0; }
   background: linear-gradient(90deg, rgba(8, 22, 12, 0.86) 0%, rgba(8, 22, 12, 0.6) 55%, rgba(8, 22, 12, 0.3) 100%);
 }
 
+/* "Photo beside heading" banner, for tall photos: on wide screens the
+   whole photo sits next to the heading over a blurred copy of itself.
+   Phones keep the regular photo-behind-heading look. */
+.hero--split .hero-figure { display: none; }
+
+@media (min-width: 821px) {
+  .hero--split { padding: 64px 20px; text-align: left; }
+
+  .hero--split .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .hero--split .hero-copy p { margin-left: 0; }
+  .hero--split .hero-actions { justify-content: flex-start; }
+
+  .hero--split .hero-bg img {
+    filter: blur(20px);
+    transform: scale(1.15);
+    object-position: center;
+  }
+
+  .hero--split .hero-bg::after { background: rgba(8, 22, 12, 0.7); }
+
+  .hero--split .hero-figure {
+    display: block;
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  }
+
+  .hero--split .hero-figure img {
+    display: block;
+    height: 420px;
+    width: auto;
+    max-width: 42vw;
+    object-fit: cover;
+  }
+}
+
 @media (max-width: 820px) {
   .hero--photo { padding: 88px 20px; }
   .hero--home { min-height: 0; padding: 80px 20px 140px; }

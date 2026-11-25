@@ -180,6 +180,15 @@ collections:
 
           - *heroImage
           - *heroPosition
+          - &heroLayout
+            label: "Top Banner Photo Style"
+            name: heroLayout
+            widget: select
+            required: false
+            hint: "For tall (portrait) photos, choose 'Photo beside heading' so the whole photo shows on computers. Phones always show the photo behind the heading."
+            options:
+              - { label: "Photo behind heading (default)", value: "background" }
+              - { label: "Photo beside heading (best for tall photos)", value: "split" }
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
 
@@ -212,6 +221,7 @@ collections:
 
           - *heroImage
           - *heroPosition
+          - *heroLayout
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
           - { label: "Section Heading", name: sectionHeading, widget: string }
@@ -235,6 +245,7 @@ collections:
 
           - *heroImage
           - *heroPosition
+          - *heroLayout
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
 
@@ -261,6 +272,7 @@ collections:
 
       - *heroImage
       - *heroPosition
+      - *heroLayout
       - { label: "Page Heading", name: heroHeading, widget: string }
       - { label: "Page Subheading", name: heroText, widget: text }
       - { label: "Back Link Text", name: backLabel, widget: hidden }
