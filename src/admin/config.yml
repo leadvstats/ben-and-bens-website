@@ -67,6 +67,18 @@ collections:
             widget: image
             required: false
             hint: "Wide (landscape) photos at least 1600px across work best. The photo is darkened so the heading stays readable."
+          - &heroPosition
+            label: "Top Banner Photo Focus"
+            name: heroPosition
+            widget: select
+            required: false
+            hint: "Which part of the photo to keep when it's cropped to fit the banner. Leave empty for the middle. Useful for tall (portrait) photos."
+            options:
+              - { label: "Top", value: "center top" }
+              - { label: "Upper middle", value: "center 25%" }
+              - { label: "Middle", value: "center" }
+              - { label: "Lower middle", value: "center 80%" }
+              - { label: "Bottom", value: "center bottom" }
           - { label: "Top Banner Small Text (above heading)", name: heroEyebrow, widget: string, required: false }
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text, hint: "Leave a blank line between sentences to start a new paragraph." }
@@ -167,6 +179,7 @@ collections:
           - { label: "Social Share Description", name: ogDescription, widget: text }
 
           - *heroImage
+          - *heroPosition
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
 
@@ -198,6 +211,7 @@ collections:
               - { name: "Hardscaping", href: /hardscaping.html }
 
           - *heroImage
+          - *heroPosition
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
           - { label: "Section Heading", name: sectionHeading, widget: string }
@@ -220,6 +234,7 @@ collections:
           - { label: "Social Share Description", name: ogDescription, widget: text }
 
           - *heroImage
+          - *heroPosition
           - { label: "Hero Heading", name: heroHeading, widget: string }
           - { label: "Hero Text", name: heroText, widget: text }
 
@@ -245,12 +260,13 @@ collections:
       - { label: "Structured Data Description", name: schemaDescription, widget: hidden }
 
       - *heroImage
+      - *heroPosition
       - { label: "Page Heading", name: heroHeading, widget: string }
       - { label: "Page Subheading", name: heroText, widget: text }
       - { label: "Back Link Text", name: backLabel, widget: hidden }
       - { label: "Back Link URL", name: backHref, widget: hidden }
       - { label: "Main Description", name: intro, widget: text }
-      - { label: "List Heading", name: includedHeading, widget: string, default: "Our Process" }
+      - { label: "List Heading", name: includedHeading, widget: string, default: "What's Included" }
       - name: includedItems
         label: "List Items"
         label_singular: "Item"

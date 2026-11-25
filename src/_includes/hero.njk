@@ -3,7 +3,7 @@
 <section class="hero{% if heroImage %} hero--photo{% endif %}{% if heroVariant %} hero--{{ heroVariant }}{% endif %}">
   {% if heroImage %}
   <div class="hero-bg" aria-hidden="true">
-    <img src="{{ heroImage }}" alt="" fetchpriority="high" />
+    <img src="{{ heroImage }}" alt="" fetchpriority="high"{% if heroPosition %} style="object-position: {{ heroPosition }}"{% endif %} />
   </div>
   {% endif %}
   <div class="container hero-inner">
