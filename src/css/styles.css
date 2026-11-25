@@ -265,7 +265,15 @@ section { padding: 64px 0; }
 .hero--split .hero-figure { display: none; }
 
 @media (min-width: 821px) {
-  .hero--split { padding: 64px 20px; text-align: left; }
+  /* Every photo banner (except the homepage) is at least as tall as the
+     Services page banner, so short headings don't zoom the photo in */
+  .hero--photo:not(.hero--home) {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero--split { padding: 35px 20px; text-align: left; }
 
   .hero--split .hero-inner {
     display: grid;
@@ -295,7 +303,7 @@ section { padding: 64px 0; }
 
   .hero--split .hero-figure img {
     display: block;
-    height: 420px;
+    height: 360px;
     width: auto;
     max-width: 42vw;
     object-fit: cover;
