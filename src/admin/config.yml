@@ -5,8 +5,8 @@ backend:
 media_folder: src/images
 public_folder: images
 
-site_url: https://benandbenspropertyservices.netlify.app
-display_url: https://benandbenspropertyservices.netlify.app
+site_url: https://benandbenspropertyservices.ca
+display_url: https://benandbenspropertyservices.ca
 
 collections:
   # ---------------------------------------------------------------
@@ -28,6 +28,9 @@ collections:
           - { label: Email Address, name: email, widget: string }
           - { label: Area Served, name: areaServed, widget: string }
           - { label: Business Hours, name: hours, widget: string }
+          - { label: "Business Hours (for Google)", name: openingHours, widget: string, required: false, hint: "Short form Google reads, e.g. Mo-Sa 07:00-17:00 (days: Mo Tu We Th Fr Sa Su, 24-hour times)" }
+          - { label: "Google Business Profile Link", name: googleProfile, widget: string, required: false }
+          - { label: "Facebook Page Link", name: facebook, widget: string, required: false }
           - { label: Service Area Sentence, name: serviceAreaText, widget: string }
           - { label: Footer Tagline, name: footerTagline, widget: string }
 

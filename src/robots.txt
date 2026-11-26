@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://benandbenspropertyservices.netlify.app/sitemap.xml
+Sitemap: https://benandbenspropertyservices.ca/sitemap.xml

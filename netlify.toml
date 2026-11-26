@@ -1,3 +1,25 @@
 [build]
   command = "npm run build"
   publish = "_site"
+
+# Old WordPress site (on Bluehost until Nov 2026): send its leftover
+# addresses to the matching new pages so Google links don't break.
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/elementor-hf/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/metform-form/*"
+  to = "/contact.html"
+  status = 301

@@ -1,13 +1,16 @@
 {
   "businessName": "Ben & Ben's Property Services",
-  "url": "https://benandbenspropertyservices.netlify.app",
+  "url": "https://benandbenspropertyservices.ca",
   "phone1": "902-233-7677",
   "phone1Link": "+19022337677",
   "phone2": "902-293-3375",
   "phone2Link": "+19022933375",
   "email": "benandbenspropertyservices@gmail.com",
   "areaServed": "Halifax, Nova Scotia",
-  "hours": "Monday – Saturday, 7:00 AM – 7:00 PM",
+  "hours": "Monday – Saturday, 7:00 AM – 5:00 PM",
+  "openingHours": "Mo-Sa 07:00-17:00",
   "serviceAreaText": "Serving Halifax and the surrounding area.",
-  "footerTagline": " Complete Property Services. Quality You Can Count On."
+  "footerTagline": " Complete Property Services. Quality You Can Count On.",
+  "googleProfile": "https://www.google.com/search?kgmid=/g/11sts4nc14",
+  "facebook": "https://www.facebook.com/100092478710466"
 }

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {#- The 404 page can be shown at any address, so its relative links need a fixed root -#}
+  {% if baseHref %}<base href="{{ baseHref }}" />{% endif %}
 
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}" />
@@ -31,7 +33,11 @@
     "email": "{{ site.email }}",
     "telephone": "{{ site.phone1Link }}",
     "url": "{{ site.url }}/",
-    "areaServed": "{{ site.areaServed }}",
+    "logo": "{{ site.url }}/images/logo.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Halifax", "addressRegion": "NS", "addressCountry": "CA" },
+    "areaServed": { "@type": "City", "name": "{{ site.areaServed }}" },
+    {% if site.openingHours %}"openingHours": "{{ site.openingHours }}",{% endif %}
+    {% if site.googleProfile or site.facebook %}"sameAs": [{% if site.googleProfile %}"{{ site.googleProfile }}"{% endif %}{% if site.googleProfile and site.facebook %}, {% endif %}{% if site.facebook %}"{{ site.facebook }}"{% endif %}],{% endif %}
     "priceRange": "$$",
     "contactPoint": [
       { "@type": "ContactPoint", "telephone": "{{ site.phone1Link }}", "contactType": "customer service" },
@@ -128,6 +134,8 @@
             <li><a href="tel:{{ site.phone1Link }}">{{ site.phone1 }}</a></li>
             <li><a href="tel:{{ site.phone2Link }}">{{ site.phone2 }}</a></li>
             <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            {% if site.googleProfile %}<li><a href="{{ site.googleProfile }}" target="_blank" rel="noopener">Google Reviews</a></li>{% endif %}
+            {% if site.facebook %}<li><a href="{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a></li>{% endif %}
           </ul>
         </div>
       </div>

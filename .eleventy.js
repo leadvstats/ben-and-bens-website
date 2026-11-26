@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const icons = require("./lib/icons");
 
 module.exports = function (eleventyConfig) {
@@ -33,6 +35,16 @@ module.exports = function (eleventyConfig) {
         : word.charAt(0).toUpperCase() + word.slice(1)
     )
   );
+
+  // Gallery tiles are ~350px wide, so use the smaller copy in
+  // src/images/thumbs/ when there is one; otherwise the full photo
+  // (e.g. photos added later through the CMS).
+  eleventyConfig.addFilter("thumb", (src) => {
+    const file = path.basename(String(src || ""));
+    return file && fs.existsSync(path.join(__dirname, "src/images/thumbs", file))
+      ? `images/thumbs/${file}`
+      : src;
+  });
 
   return {
     dir: {
