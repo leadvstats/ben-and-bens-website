@@ -6,6 +6,15 @@
   {#- The 404 page can be shown at any address, so its relative links need a fixed root -#}
   {% if baseHref %}<base href="{{ baseHref }}" />{% endif %}
 
+  <!-- Google tag (gtag.js) for Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17981217026"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17981217026');
+  </script>
+
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}" />
   {% if keywords %}<meta name="keywords" content="{{ keywords }}" />{% endif %}
